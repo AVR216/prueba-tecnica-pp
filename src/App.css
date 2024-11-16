@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-height: 100vh;
+}
+
+hr {
+    margin: 20px auto;
+    width: 90%;
+    border: 0,5px solid #000;
+}
