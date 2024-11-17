@@ -2,6 +2,10 @@ import { useEffect } from "react";
 import { useGetWeather } from "../../hooks/useGetWeather";
 
 import './Weather.css';
+import { kelvinToCelsius } from "../../utils/temperature/temperature";
+
+import lluviaImage from '/lluvia.jpg';
+import soleadoImage from '/soleado.jpg';
 
 export function Weather({ selectedLocation }) {
 
@@ -26,19 +30,20 @@ export function Weather({ selectedLocation }) {
         <section>
             <h3>
                 {selectedLocation.name} - {selectedLocation.country} 
-                {selectedLocation.state ? `, ${selectedLocation.state}` : ''}
+                {selectedLocation.state ? `, ${selectedLocation.state}` : ''} ☂️
             </h3>
             <div className="card-container">
                 {data?.map((weather, index) => (
                     <article className="card" key={index}>
                          <img src={
                             weather?.weather?.[0]?.description.includes('lluvia') ?
-                            'src/assets/lluvia.jpg' : 'src/assets/soleado.jpg'
+                            lluviaImage : soleadoImage
                         } alt="imagen representativa" />
-                        <h4>Fecha: {weather?.dt_txt}</h4>
+                        <h4>Fecha: {weather?.dt_txt.substring(0, 10)}</h4>
                         <p>Clima principal: {weather?.weather?.[0].description}</p>
-                        <p>Temperatura max: {weather?.main?.temp_max}</p>
-                        <p>Temperatura min: {weather?.main?.temp_min}</p>
+                        <p>Temperatura max: {kelvinToCelsius({kelvin: weather?.main?.temp_max})} °C
+                        </p>
+                        <p>Temperatura min: {kelvinToCelsius({kelvin: weather?.main?.temp_min})} °C</p>
                     </article>
                 ))}
             </div>

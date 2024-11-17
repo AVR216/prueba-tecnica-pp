@@ -15,6 +15,7 @@ export function Header ({
         <h1>¿Quieres saber como está el clima en cualquier ciudad?</h1>
 
         <form onSubmit={handleSubmit} style={{ position: "relative" }} autoComplete="off">
+            <div className="form-group">
             <input
             type="text"
             name="city"
@@ -39,10 +40,14 @@ export function Header ({
                 ))}
             </ul>
             )}
-        </form>
-        {error && <p style={{
-            color: "#A23"
+            </div>
+            
+            {error && <p style={{
+            color: "#A23",
+            margin: "30px 20px"
         }}>{error}</p>}
+        </form>
+        
     </header>
   );
 };

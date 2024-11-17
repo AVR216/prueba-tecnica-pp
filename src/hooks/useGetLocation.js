@@ -13,11 +13,11 @@ export function useGetLocation() {
                 const newLocations = await fetchLocations( {city} );
                 setLocations(newLocations);
             } catch (error) {
-                setError(error.message);
+                setError("Ciudad no encontrada");
                 setLocations(null);
-                throw new Error('An error has ocurred fetching data: ', error.message);
+                console.error(error.message);
             }
         }, []);
 
-    return { locations, setLocations, getLocations, error }
+    return { locations, setLocations, getLocations, error, setError }
 }
