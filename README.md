@@ -30,5 +30,5 @@ En esta sección se describen aspectos que no fueron implementados por cuestión
 
 ## Despliegue
 
-Se realizó despliegue del aplicativo usando Github pages. Se puede acceder a través del siguiente enlace: [prueba-pp](https://www.ejemplo.com](https://avr216.github.io/prueba-tecnica-pp/ "Prueba técnica").
+Se realizó despliegue del aplicativo usando Github pages. Se puede acceder a través del siguiente enlace: [prueba-pp](https://avr216.github.io/prueba-tecnica-pp/ "Prueba técnica").
 
