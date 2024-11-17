@@ -8,30 +8,45 @@ import { Footer } from "./components/footer/Footer";
 
 function App() {
   const [city, setCity] = useState('');
-  const { locations, getLocations } = useGetLocation();
+  const { locations, getLocations, error: errorLocation, setError: setErrorLocation } = useGetLocation();
   const [error, setError] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [isVisibleDropdown, setVisibleDropdown] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     if (error || !city) {
       alert('Corrija los errores');
       setSelectedLocation(null);
       return;
     }
+
     getLocations({ city });
+    
+    if (errorLocation) {
+      setError(errorLocation); 
+      setSelectedLocation(null);
+      setVisibleDropdown(false);
+      return;
+    } 
+
     setVisibleDropdown(true);
+
   };
 
   const handleChange = (event) => {
     const value = event.target.value.trim();
     setCity(value);
+
     if (value.length < 3) {
       setError('La ciudad ingresada debe tener por lo menos 3 caracteres');
-    } else {
-      setError(null);
+      return;
     }
+    setError(null);
+    setErrorLocation(null);
+    setVisibleDropdown(false);
+    setSelectedLocation(null);
   };
 
   const handleSelect = (location) => {
@@ -44,7 +59,7 @@ function App() {
       
       <Header 
         city={city}
-        error={error}
+        error={error || errorLocation}
         locations={locations}
         isVisibleDropdown={isVisibleDropdown}
         handleSubmit={handleSubmit}
@@ -52,9 +67,9 @@ function App() {
         handleSelect={handleSelect}
       />
 
-      {selectedLocation && <hr />}
+      {selectedLocation && !errorLocation &&  <hr />}
      
-      {selectedLocation && <Weather selectedLocation={selectedLocation}/>}
+      {selectedLocation && !errorLocation && <Weather selectedLocation={selectedLocation} />}
 
       <Footer />
 
