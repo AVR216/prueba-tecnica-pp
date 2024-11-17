@@ -10,3 +10,9 @@ hr {
     width: 90%;
     border: 0,5px solid #000;
 }
+
+@media (max-width: 600px) {
+    hr {
+      display: none;
+    }
+  }

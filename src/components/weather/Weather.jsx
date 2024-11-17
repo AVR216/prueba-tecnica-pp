@@ -4,6 +4,9 @@ import { useGetWeather } from "../../hooks/useGetWeather";
 import './Weather.css';
 import { kelvinToCelsius } from "../../utils/temperature/temperature";
 
+import lluviaImage from '/lluvia.jpg';
+import soleadoImage from '/soleado.jpg';
+
 export function Weather({ selectedLocation }) {
 
     useEffect(() => {
@@ -34,7 +37,7 @@ export function Weather({ selectedLocation }) {
                     <article className="card" key={index}>
                          <img src={
                             weather?.weather?.[0]?.description.includes('lluvia') ?
-                            'src/assets/lluvia.jpg' : 'src/assets/soleado.jpg'
+                            lluviaImage : soleadoImage
                         } alt="imagen representativa" />
                         <h4>Fecha: {weather?.dt_txt.substring(0, 10)}</h4>
                         <p>Clima principal: {weather?.weather?.[0].description}</p>
