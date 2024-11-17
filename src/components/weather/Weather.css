@@ -24,6 +24,12 @@ section .card {
     background: #fff;
     min-width: 250px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+section .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 section .card img {

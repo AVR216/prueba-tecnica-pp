@@ -1,8 +1,12 @@
-# React + Vite
+# Prueba Técnica - Jhon Villalba
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Este proyecto realiza el consumo de la API de OpenWeatherMap, la cual proporciona información sobre el clima en diferentes ciudades.
 
-Currently, two official plugins are available:
+## Ejecución del código fuente
+1. Navega a la ruta del proyecto:
+   ```bash
+   cd /ruta-proyecto
+ - npm install -> para instalar dependecias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
